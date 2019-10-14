@@ -1,0 +1,30 @@
+div {
+    padding: 0.5rem;
+    margin: 0.5em;
+    border-width: 2px;
+    border-style: solid;
+}
+
+div div{
+    color: yellowgreen;
+}
+
+div div div{
+    color: orange;
+}
+
+div div div div{
+    color: black;
+}
+
+div div div div div {
+    color: green;
+}
+
+div div div div div div {
+    color: deepskyblue;
+}
+
+div div div div div div div{
+    color: darkmagenta;
+}
