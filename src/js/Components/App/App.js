@@ -24,15 +24,26 @@ export default class App extends Component{
             props:{
                 temperature: 17,
                 unit: 'C',
+                },
             },
-        },
-        {
-            tag: Wind,
-            props:{
-                speed: 27,
-                unit: 'mps',
+            {
+                tag: 'div',
+                content: 'Me div',
+                classList: ['nice'],
+                attributes: [
+                    {
+                        name:'title',
+                        value:'Me definetely'
+                    }
+                ],
             },
-        }
+            {
+                tag: Wind,
+                props:{
+                    speed: 27,
+                    unit: 'mps',
+                },
+            }
         ]
     }
 }
