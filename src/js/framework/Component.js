@@ -11,7 +11,7 @@ export default class Component {
         if(typeof content === 'string') {
             this.host.innerHTML = content;
         } else {
-            content.map(this._vDomPrototypeElementToHtmlElement) // [string|HTMLElement] => [HTMLElement]
+            content.map(item => this._vDomPrototypeElementToHtmlElement(item)) // [string|HTMLElement] => [HTMLElement]
                 .forEach(htmlElement => {
                     this.host.appendChild(htmlElement)
                 })
@@ -46,7 +46,7 @@ export default class Component {
                         container.innerHTML = element.content
                     }
                     //element props let should array
-                    ['classList', 'attributes'].forEach(item => {
+                    ['classList', 'attributes', 'children'].forEach(item => {
                         if(element.item && !Array.isArray(element.item)){
                             element[item] = [element[item]]
                         }
@@ -59,6 +59,15 @@ export default class Component {
                             container.setAttribute(attributeSpec.name, attributeSpec.value)
                         })
                     }
+                    //process children
+                    if(element.children){
+                        element.children.forEach(el => {
+                            const htmlElement = this._vDomPrototypeElementToHtmlElement(el);
+                            container.appendChild(htmlElement);
+                        })
+                    }
+
+
                     return container;
                 }
             }
